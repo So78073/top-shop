@@ -1,0 +1,165 @@
+<?php
+namespace App\Controllers\CLI;
+namespace App\Controllers;
+use CodeIgniter\CLI\CLI;
+use CodeIgniter\HTTP\Response;
+class Checker extends BaseController
+{
+	public function index()
+	{
+		if(session()->get("logedin") == "1" && session()->get('suser_groupe') == "9"){
+			$data = [];
+			$settings = fetchSettings();
+			$mycart = getCart();
+			$data["nbitemscart"] = $mycart[0];
+			$data["cartInnerHtml"] = $mycart[1];
+			$data["settings"] = $settings;
+			$data["nbitemscart"] = $mycart[0];
+			$data["cartInnerHtml"] = $mycart[1];
+			$data["settings"] = $settings;
+			$data["sectionName"] = "Checker";
+			$this->response->send();
+			ob_end_flush();
+			flush();
+			echo view("assets/header", $data);
+            echo view("assets/aside");
+            echo view("assets/topbarre");
+            echo view("checker");
+            echo view("assets/footer");
+            echo view("assets/scripts");
+		}
+		else {
+			header('location:'.base_url().'/login');
+			exit();
+		}
+		
+	}
+	
+	
+    function flushoutput($out){
+        //while (ob_get_level() > 0){
+            echo $out;
+            ob_flush();
+    		flush();
+    		//sleep(1);
+        //}
+    }
+	
+	public function startchecker(){
+	    $t = $this->request->getPost();
+	    foreach ($t as $key => $value){
+	        $posts = json_decode(base64_decode($key), true)["data"];
+	    }
+	    
+	    $ccs = array();
+	    $expm = array();
+	    $expy = array();
+	    $expmy = array();
+	    $cvv = array();
+	    $fname = array();
+	    $lname = array();
+	    $fullname = array();
+	    $address = array();
+	    $city = array();
+	    $state = array();
+	    $country = array();
+	    $phone = array();
+	    $dob = array();
+	    $zip = array();
+	    $ip = array();
+	    $other = array();
+	    foreach ($posts as $ken=> $riu){
+            if($riu['name'] == "cc[]"){
+                $ccs[] = $riu['value'];
+            }
+            else if($riu['name'] == "expm[]"){
+                $expm[] = $riu['value'];
+            }
+            else if($riu['name'] == "expy[]"){
+                $expy[] = $riu['value'];
+            }
+            else if($riu['name'] == "expmy[]"){
+                $expmy[] = $riu['value'];
+            }
+            else if($riu['name'] == "cvv[]"){
+                $cvv[] = $riu['value'];
+            }
+            else if($riu['name'] == "fname[]"){
+                $fname[] = $riu['value'];
+            }
+            else if($riu['name'] == "lname[]"){
+                $lname[] = $riu['value'];
+            }
+            else if($riu['name'] == "fullname[]"){
+                $fullname[] = $riu['value'];
+            }
+            else if($riu['name'] == "address[]"){
+                $address[] = $riu['value'];
+            }
+            else if($riu['name'] == "city[]"){
+                $city[] = $riu['value'];
+            }
+            else if($riu['name'] == "state[]"){
+                $state[] = $riu['value'];
+            }
+            else if($riu['name'] == "country[]"){
+                $country[] = $riu['value'];
+            }
+            else if($riu['name'] == "phone[]"){
+                $phone[] = $riu['value'];
+            }
+            else if($riu['name'] == "dob[]"){
+                $dob[] = $riu['value'];
+            }
+            else if($riu['name'] == "zip[]"){
+                $zip[] = $riu['value'];
+            }
+            else if($riu['name'] == "ip[]"){
+                $ip[] = $riu['value'];
+            }
+            else if($riu['name'] == "other[]"){
+                $other[] = $riu['value'];
+            }
+
+	    }
+	    header( 'Content-type: text/html; charset=utf-8' );
+	    $xx = 0;
+	    for($i = 1; $i <= count($ccs); $i++ ){
+	    	$param = [ 
+	    	        $ccs[$i-1],
+	    	        $expm[$i-1],
+	    	        $expy[$i-1],
+	    	        $cvv[$i-1],
+	    	        (isset($fname[$i-1]) ? $fname[$i-1]:false),
+	    	        (isset($lname[$i-1]) ? $lname[$i-1]:false),
+	    	        (isset($fullname[$i-1]) ? $fullname[$i-1]:false),
+	    	        (isset($address[$i-1]) ? $address[$i-1]:false),
+	    	        (isset($city[$i-1]) ? $city[$i-1]:false),
+	    	        (isset($state[$i-1]) ? $state[$i-1]:false),
+	    	        (isset($country[$i-1]) ? $country[$i-1]:false),
+	    	        (isset($phone[$i-1]) ? $phone[$i-1]:false),
+	    	        (isset($dob[$i-1]) ? $dob[$i-1]:false),
+	    	        (isset($zip[$i-1]) ? $zip[$i-1]:false),
+	    	        (isset($ip[$i-1]) ? $ip[$i-1]:false),
+	    	        (isset($other[$i-1]) ? $other[$i-1]:false),
+	        ];
+
+	        $params = base64_encode(json_encode($param));
+    		//$cmd = "python3 /www/wwwroot/1337cz.com/market/app/Controllers/bin/checker.py $params";
+    		//$res = shell_exec($cmd);
+    		//echo $res.'*-';
+            //$response = service('response');
+            //$response->setStatusCode(Response::HTTP_OK);
+            //$response->setBody($res.'*-');
+            //$response->setHeader('Content-type', 'text/html; charset=utf-8');
+            //$response->noCache();
+            //$response->send();
+            
+    		$this->flushoutput($i);
+    		sleep(1);
+    		
+	    }
+	    ob_end_clean();
+	    exit();
+	}
+}

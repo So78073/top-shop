@@ -1,0 +1,677 @@
+<?php
+
+namespace App\Controllers;
+use App\Models\MyitemsModel;
+use App\Models\UsersModel;
+use App\Models\CardsModel;
+use App\Models\SectionsModel;
+class MyItems extends BaseController
+{
+	private function intervals($time){
+	    $timediff=time()-$time; 
+	    $days=intval($timediff/86400);
+	    $remain=$timediff%86400;
+	    $hours=intval($remain/3600);
+	    $remain=$remain%3600;
+	    $mins=intval($remain/60);
+	    $secs=$remain%60;
+	    if ($secs>=0) $timestring = "00:00:00:".$secs;
+	    if ($mins>0) $timestring = "00:00:".$mins.":".$secs;
+	    if ($hours>0) $timestring = "00:".$hours.":".$mins.":".$secs;
+	    if ($days>0) $timestring = $days.":".$hours.":".$mins.":".$secs;
+	    return $timestring; 
+	}
+	public function index()
+	{
+		if(session()->get("logedin") == "1"){
+			$data = [];
+			$settings = fetchSettings();
+			$mycart = getCart();
+			$data["nbitemscart"] = $mycart[0];
+			$data["cartInnerHtml"] = $mycart[1];
+			$data["settings"] = $settings;
+			$data["sectionName"] = "Orders";
+			echo view("assets/header", $data);
+            echo view("assets/aside");
+            echo view("assets/topbarre");
+            echo view("myItems");
+            echo view("assets/footer");
+            echo view("assets/scripts");	
+		}
+		else {
+			header('location:'.base_url().'/login');
+			exit();
+		}
+	}
+
+	public function offnew(){
+		$response = array();
+		if(session()->get("logedin") == true){
+			$model = new MyitemsModel;
+			$Results = $model->where(['userid' => session()->get('suser_id')])->findAll();
+			if($Results > 0){
+				foreach ($Results as $key => $value) {
+					$data = [
+						'new' => '0'
+					];
+					$model->update($value['id'], $data);	
+				}		
+			}
+		}
+		$response["csrft"] = csrf_hash();
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit();
+	}
+
+	public function fetchTable(){
+		if($this->request->isAJAX()){
+			if(session()->get("logedin") == '1'){
+				$settings = fetchSettings();
+				$output = array('data' => array());
+				$model = new MyitemsModel;
+				$Results = $model->where('userid', session()->get('suser_id'))->orderBy('id', 'desc')->findAll();
+				$countResults = count($Results);
+				
+				if($countResults > 0){
+					foreach ($Results as $Result) {
+						//id
+						if($Result['new'] == '1'){
+							$id = '
+							<span class="badge rounded-pill bg-danger blink_me">#'.$Result['id'].' NEW</span>';	
+						}
+						else {
+							$id = '#'.$Result['id'];
+						}
+
+						if($Result['typeid'] == "1"){
+							$typeArray = explode("</br>",$Result['details']);
+							$newtypeArray = [];
+							foreach ($typeArray as $kk => $vv) {
+								if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+									$c = explode(':', $vv);
+									if($c[1] !== ""){
+										$newtypeArray[] = $c[1];
+									}
+								}					
+							}
+							$type = implode("::",$newtypeArray);
+							$purechaseType = $Result['type'];
+							$getdetails = '<button type="button" id="buybtn" data-api="getDetail-'.$Result['id'].'" class="btn btn-primary btn-sm">OPEN</button></div>';
+							$details = '<div class="btn-group" role="group" aria-label="Tools">
+									';
+							$date = $Result['date'];
+						
+							$date2 = strtotime($Result["date"]);
+							$diffs = $this->intervals($date2);						
+							$alldate = explode(':',$diffs);
+							$daystosec = $alldate[0] * 86400;
+							$hourstosec = $alldate[1] * 3600;
+							$mintstosec = $alldate[2] * 60;
+							$secstosec = $alldate[3];
+							$all = $daystosec+$hourstosec+$mintstosec+$secstosec;
+							if($settings[0]['ccchecker'] == '1' && $Result['refundible'] == '1'){
+							    if($all <= $settings[0]['ccchecktimeout']){
+							        if($Result['checked'] == '1' && $Result['gb'] == '2'){
+										$details .= '<span class="badge bg-danger">DEAD</span>';
+									}
+									else if($Result['checked'] == '1' && $Result['gb'] == '1'){
+											$details .= '<span class="badge bg-success">LIVE</span>';
+									}
+									else{
+										$details .= '<button type="button" data-api="checkerr-'.$Result['id'].'" class="btn btn-success btn-sm" title="Check This Item">CHECK</button>';
+									}
+							    }
+							    else {
+							        if($Result['gb'] == '2' && $Result['refundible'] == "1"){
+	    								$details .= '<span class="badge bg-danger">DEAD</span>';
+	    							}
+	    							else if($Result['gb'] == '1' && $Result['refundible'] == "1"){
+	    								$details .= '<span class="badge bg-success">LIVE</span>';
+	    							}
+	    							else if($Result['gb'] == '0' && $Result['refundible'] == "1"){
+	    								$details .= '<span class="badge bg-warning">TIME OUT</span>';
+	    							}
+	    							else {
+	    								$details .= '<span class="badge bg-primary">NON REFUNDABLE</span>';
+	    							}
+							    }
+							}
+							else{
+								$details .= '<span class="badge bg-primary">NON REFUNDABLE</span>';
+							}
+						}
+						else {
+							$typeArray = explode("</br>",$Result['details']);
+							$newtypeArray = [];
+							foreach ($typeArray as $kk => $vv) {
+								if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+									$c = explode(':', $vv);
+									if($c[1] !== ""){
+										$newtypeArray[] = $c[1];
+									}
+								}					
+							}
+							$type = $Result['details'];
+							$purechaseType = $Result['type'];
+							$getdetails = '<button type="button" id="buybtn" data-api="getDetail-'.$Result['id'].'" class="btn btn-primary btn-sm"><span class="bx bx-comment-detail"></span></button>';
+							$details = '<div class="btn-group" role="group" aria-label="Tools">';
+							$date = $Result['date'];
+							$date2 = strtotime($Result["date"]);
+							$diffs = $this->intervals($date2);						
+							$alldate = explode(':',$diffs);
+							$daystosec = $alldate[0] * 86400;
+							$hourstosec = $alldate[1] * 3600;
+							$mintstosec = $alldate[2] * 60;
+							$secstosec = $alldate[3];
+							$all = $daystosec+$hourstosec+$mintstosec+$secstosec;
+							if($settings[0]['ccchecker'] == '1' && $Result['refundible'] == '1'){
+							    if($all <= $settings[0]['ccchecktimeout']){
+							        if($Result['reported'] == '1'){
+										$details .= '<span class="badge bg-danger">Reported</span>';
+									}
+									else if($Result['reported'] == '2'){
+											$details .= '<span class="badge bg-success">Refunded</span>';
+									}
+									else if($Result['reported'] == '3'){
+											$details .= '<span class="badge bg-warning">Closed</span>';
+									}
+									else if($Result['reported'] == '4'){
+											$details .= '<span class="badge bg-warning">Replaced</span>';
+									}
+									else{
+										$details .= '<button type="button" data-api="report-'.$Result['id'].'|'.$Result['type'].'" class="btn btn-primary btn-sm" title="Check This Item">Report</button>';
+									}
+							    }
+							    else {
+							        if($Result['reported'] == '1'){
+										$details .= '<span class="badge bg-danger">Reported</span>';
+									}
+									else if($Result['reported'] == '2'){
+											$details .= '<span class="badge bg-success">Refunded</span>';
+									}
+									else if($Result['reported'] == '3'){
+											$details .= '<span class="badge bg-warning">Closed</span>';
+									}
+									else if($Result['reported'] == '4'){
+											$details .= '<span class="badge bg-warning">Replaced</span>';
+									}
+	    							else {
+	    								$details .= '<span class="badge bg-warning">Report Time Out</span>';
+	    							}
+							    }
+							}
+							else{
+								$details .= '<span class="badge bg-primary">NON REFUNDABLE</span>';
+							}	
+						}
+						$details .= '</div>';
+	                	$output['data'][] = array(
+	                		$id,
+	                		$purechaseType,
+	                		esc(substr($type, 0,50).'...'),
+	                		$getdetails,
+	                		$details,
+							$date					
+						);
+					}
+					header('Content-Type: application/json');
+					echo json_encode($output);
+					exit();
+				}
+				else {
+					$output['data'][] = array(
+						NULL,
+	            		NULL,
+						NULL,
+						NULL,
+						NULL,
+						NULL,
+					);
+					header('Content-Type: application/json');
+					echo json_encode($output);
+					exit();	
+				}
+			}
+			else {
+				header('location:'.base_url().'/');
+				exit();
+			}
+		}
+		else {
+			echo "Nice try";
+			exit();
+		}
+	}
+
+	public function getDetail(){
+		$response = array();
+		if(session()->get("logedin") == "1"){
+			if($this->request->getPost('id') != ''){
+				$id = $this->request->getPost('id');
+				$model = new MyitemsModel;
+				$Results = $model->where(['userid' => session()->get('suser_id'), 'id' => $id])->findAll();
+				$countres = count($Results);
+				if($countres == 1){
+					$modalContent = $Results[0]['details'];
+					$response["modal"] = createModal($modalContent, 'fade animated', 'CC info:', 'text-danger', 'modal-dialog-centered', "1", "1", "1", "1", "0");
+				}
+				else {
+					$modalContent = 'Error BE-001';
+					$response["modal"] = createModal($modalContent, 'fade animated', 'Error', 'text-danger', 'modal-dialog-centered', "1", "1", "1", "1", "0");
+				}
+			}
+			else {
+				$modalContent = 'Error BE-002';
+				$response["modal"] = createModal($modalContent, 'fade animated', 'Error', 'text-danger', 'modal-dialog-centered', "1", "1", "1", "1", "0");
+			}
+		}
+		else {
+			$modalContent = 'Error BE-003';
+			$response["modal"] = createModal($modalContent, 'fade animated', 'Error', 'text-danger', 'modal-dialog-centered', "1", "1", "1", "1", "0");
+		}
+		$response["csrft"] = csrf_hash();
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit();
+	}
+
+	/**function reportItem(){
+		$response = array();
+		if(session()->get("logedin") == true){
+			if($this->request->getPost('id') != ''){
+				$model = new MyitemsModel;
+				$id= $this->request->getPost('id');
+				$Results = $model->where(['id' => $id, 'userid' => session()->get("suser_id")])->findAll();
+				$countres = count($Results);
+				if($countres == 1){
+					if($Results[0]['reported'] == 0){
+						$data = [
+							'reported' => 1
+						];
+						$model->update($Results[0]['id'], $data);
+						echo json_encode($response);
+					}
+					else {
+						echo '01';
+					}
+				}
+				else {
+					echo '02';
+				}
+			}
+			else {
+				echo '03';
+			}
+		}
+		else {
+			echo '04';				
+		}
+	}**/
+
+	public function downloadcc(){
+		if(session()->get("logedin") == '1'){
+			$cc = '';
+			if($this->request->getGet('id') != ''){
+				$model = new MyitemsModel;
+				$id= $this->request->getGet('id');
+				$Results = $model->where(['id' => $id, 'userid' => session()->get("suser_id")])->findAll();
+				$countres = count($Results);
+				if($countres == 1){
+
+					$typeArray = explode("</br>",$Results[0]['details']);
+					$newtypeArray = [];
+					foreach ($typeArray as $kk => $vv) {
+						if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+							$c = explode(':', $vv);
+							if($c[1] !== ""){
+								$newtypeArray[] = $c[1];
+							}
+						}					
+					}
+					$cc = implode("::",$newtypeArray);
+					header('Content-Description: File Transfer');
+				    header('Content-Type: application/octet-stream');
+				    header('Content-disposition: attachment; filename=cc.txt');
+				    header('Content-Length: '.strlen($cc));
+				    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+				    header('Expires: 0');
+				    header('Pragma: public');
+				    
+				    echo $cc;
+				    exit;
+				}
+				else {
+					header('location:'.base_url().'/myitems');
+					exit();
+				}
+			}
+			else {
+				header('location:'.base_url().'/myitems');
+				exit();
+			}
+		}
+		else {
+			header('location:'.base_url().'/myitems');
+			exit();
+		}
+	}
+
+	public function downloadccToday(){
+		if(session()->get("logedin") == true){
+			$cc = '';
+			$model = new MyitemsModel;
+			$id= $this->request->getGet('id');
+			$ndate = new \DateTime();
+			$date = $ndate->format('Y-m-d');
+			$Results = $model->like(['userid' => session()->get("suser_id"), 'date' => $date])->findAll();
+			$countres = count($Results);
+			if($countres > 0){
+				foreach ($Results as $key => $value) {
+					$typeArray = explode("</br>",$value['details']);
+					$newtypeArray = [];
+					foreach ($typeArray as $kk => $vv) {
+						if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+							$c = explode(':', $vv);
+							if($c[1] !== ""){
+								$newtypeArray[] = $c[1];
+							}
+						}					
+					}
+
+					$cc .= implode("::",$newtypeArray).PHP_EOL;
+				}
+				header('Content-Description: File Transfer');
+			    header('Content-Type: application/octet-stream');
+			    header('Content-disposition: attachment; filename=cc.txt');
+			    header('Content-Length: '.strlen($cc));
+			    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			    header('Expires: 0');
+			    header('Pragma: public');
+			    echo $cc;
+			    exit;
+			}
+			else {
+				header('location:'.base_url().'/myitems');
+				exit();
+			}
+
+		}
+		else {
+			header('location:'.base_url().'/myitems');
+			exit();
+		}
+	}
+
+	public function downloadAll(){
+		if(session()->get("logedin") == true){
+			$cc = '';
+			$model = new MyitemsModel;
+			$id= $this->request->getGet('id');
+			$ndate = new \DateTime();
+			$date = $ndate->format('Y-m-d');
+			$Results = $model->like(['userid' => session()->get("suser_id")])->findAll();
+			$countres = count($Results);
+			if($countres > 0){
+				foreach ($Results as $key => $value) {
+					$typeArray = explode("</br>",$value['details']);
+					$newtypeArray = [];
+					foreach ($typeArray as $kk => $vv) {
+						if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+							$c = explode(':', $vv);
+							if($c[1] !== ""){
+								$newtypeArray[] = $c[1];
+							}
+						}					
+					}
+
+					$cc .= implode("::",$newtypeArray).PHP_EOL;
+				}
+				header('Content-Description: File Transfer');
+			    header('Content-Type: application/octet-stream');
+			    header('Content-disposition: attachment; filename=cc.txt');
+			    header('Content-Length: '.strlen($cc));
+			    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			    header('Expires: 0');
+			    header('Pragma: public');
+			    echo $cc;
+			    exit;
+			}
+			else {
+				header('location:'.base_url().'/myitems');
+				exit();
+			}
+
+		}
+		else {
+			header('location:'.base_url().'/myitems');
+			exit();
+		}
+	}
+
+	private function dateDiff ($d1, $d2) {
+	    return round(abs(strtotime($d1) - strtotime($d2))/86400);
+	} 
+
+	public function checkerr(){
+		if(session()->get("logedin") == '1' && $this->request->isAJAX() === true){
+			$response = array();
+			if($this->request->getPost('id') != ''){
+				$model = new MyitemsModel;
+				$usersModel = new UsersModel;
+				$id= $this->request->getPost('id');
+				$Results = $model->where(['id' => $id, 'userid' => session()->get("suser_id")])->findAll();
+				$ResultsUser = $usersModel->where(['id' => session()->get("suser_id")])->findAll();
+				if($Results[0]['checked'] == '1'){
+					$response["message"] = "Something went wrong REF-E003.";
+                    $response["typemsg"] = "error";
+                    $response["position"] = "bottom right";
+                    $response["size"] = "mini";
+                    $response["icone"] = "fa fa-check-circle";
+                    $response["sounds"] = "sound4";
+                    $response["csrft"] = csrf_hash();
+					header('Content-Type: application/json');
+					echo json_encode($response);
+					exit();
+				}
+				else {
+					if(count($Results) == 1){
+						$html = '';
+						$settings = fetchSettings();
+						if($ResultsUser[0]['balance'] >= $settings[0]['cccheckercost']){
+							$date2 = strtotime($Results[0]["date"]);
+							$diffs = $this->intervals($date2);						
+							$alldate = explode(':',$diffs);
+							$daystosec = $alldate[0] * 86400;
+							$hourstosec = $alldate[1] * 3600;
+							$mintstosec = $alldate[2] * 60;
+							$secstosec = $alldate[3];
+							$all = $daystosec+$hourstosec+$mintstosec+$secstosec;
+							if($all <= $settings[0]['ccchecktimeout']){
+								$typeArray = explode("</br>",$Results[0]['details']);
+								$newtypeArray = [];
+								foreach ($typeArray as $kk => $vv) {
+									if(strpos($vv, ':') !== false && strpos($vv, 'N/A') === false && $vv !== ''){
+										$c = explode(':', $vv);
+										if($c[0] == "Card Number "){
+											$newtypeArray['cc'] = $c[1];
+										}
+										else if($c[0] == "Exp "){
+											$newtypeArray['exp'] = $c[1];
+										}
+										else if($c[0] == "CVV/CCV "){
+											if(strpos($c[1], "\r\n") !== false){
+												$newtypeArray['cvv'] = str_replace("\r\n", '', $c[1]);
+											}
+											else if(strpos($c[1],"\r") !== false) {
+												$newtypeArray['cvv'] = str_replace("\r", '', $c[1]);
+											}
+											else {
+												$newtypeArray['cvv'] = $c[1];
+											}
+										}
+									}					
+								}
+								$chkapi = $settings[0]['ccdotcheckapi'];
+
+								$curResponse = chkchecker($chkapi, $newtypeArray);
+								//var_dump($curResponse);
+								//exit();
+								if($curResponse == '  APPROVED'){
+									$NewUserBalance = $ResultsUser[0]['balance'] - $settings[0]['cccheckercost'];
+									//$nbobjects = $ResultsUser[0]['object_nb'] + 1;
+									$dataUpdateUser = [
+										'balance' => $NewUserBalance,
+										//'object_nb' => $nbobjects
+									];
+									$usersModel->update($ResultsUser[0]['id'], $dataUpdateUser);
+
+									$dataUpdateItems = [
+										'checked' => '1',
+										'gb' => '1',
+									];
+									$model->update($id, $dataUpdateItems);
+									$response['chek'] = '1';
+								}
+								else {
+									$cardsModel = new CardsModel;
+									$ResultsCards = $cardsModel->where('id', $Results[0]['prodid'])->findAll();
+									if(count($ResultsCards) == 1){
+										if($Results[0]['checked'] == '1'){
+											$response["message"] = "Something went wrong REF-E003.";
+		                                    $response["typemsg"] = "error";
+		                                    $response["position"] = "bottom right";
+		                                    $response["size"] = "mini";
+		                                    $response["icone"] = "fa fa-check-circle";
+		                                    $response["sounds"] = "sound4";
+		                                    $response["csrft"] = csrf_hash();
+											header('Content-Type: application/json');
+	    	            					echo json_encode($response);
+		                					exit();
+										}
+										else {
+											$NewUserBalance = $ResultsCards['0']['price'] + $ResultsUser[0]['balance'];
+											$nbobjects = $ResultsUser[0]['object_nb'] - 1;
+
+											$dataUpdateUser = [
+												'balance' => $NewUserBalance,
+												'object_nb' => $nbobjects
+											];
+											$usersModel->update($ResultsUser[0]['id'], $dataUpdateUser);
+											$ResultsSeller = $usersModel->where('id', $ResultsCards[0]['sellerid'])->findAll();
+											if(count($ResultsSeller)  == 1){
+												$newSellerBalance = $ResultsSeller[0]['seller_balance'] - $ResultsCards[0]['price'];
+												
+												$dataSeller = [
+													'seller_balance' => $newSellerBalance,
+												];
+
+												$usersModel->update($ResultsSeller[0]['id'], $dataSeller);
+											}
+											$dataUpdateItems = [
+												'checked' => '1',
+												'gb' => '2',
+											];
+											$model->update($id, $dataUpdateItems);
+											$dataCardUpdate = [
+												'refunded' => '1'
+											];
+											$cardsModel->update($ResultsCards[0]['id'], $dataCardUpdate);
+											$response['chek'] = '2';
+											$ModelSection = new SectionsModel;
+											$sectionRevenue = $ModelSection->where(['identifier' => '1'])->findAll();
+											if(count($sectionRevenue) == 1 && $sectionRevenue[0]['sectionrevenue'] >= $ResultsCards[0]['price']){
+												$newSectionRevenue = $sectionRevenue[0]['sectionrevenue'] - $ResultsCards[0]['price'];
+												$newsectionItems = $sectionRevenue[0]['itemsnumbers'] - 1;
+												$dataSection = [
+													'sectionrevenue' => $newSectionRevenue,
+													'itemsnumbers' => $newsectionItems,
+												];
+												$ModelSection->update($sectionRevenue[0]['id'], $dataSection);
+											}
+										}	
+									}
+									else {
+										$response["message"] = "Something went wrong REF-E003.";
+	                                    $response["typemsg"] = "error";
+	                                    $response["position"] = "bottom right";
+	                                    $response["size"] = "mini";
+	                                    $response["icone"] = "fa fa-check-circle";
+	                                    $response["sounds"] = "sound4";
+	                					echo json_encode($response);
+	                					exit();
+									}
+								}
+								$response["csrft"] = csrf_hash();
+								header('Content-Type: application/json');
+								echo json_encode($response);
+								exit();
+							}
+							else {
+								$response["message"] = "Checker Time out.";
+	                            $response["typemsg"] = "error";
+	                            $response["position"] = "bottom right";
+	                            $response["size"] = "mini";
+	                            $response["icone"] = "fa fa-check-circle";
+	                            $response["sounds"] = "sound4";
+	                            $response["csrft"] = csrf_hash();
+								header('Content-Type: application/json');
+	        					echo json_encode($response);
+	        					exit();
+							}
+						}
+						else {
+							$response["message"] = "Your balance is to low, Please reload your wallet.";
+	                        $response["typemsg"] = "error";
+	                        $response["position"] = "bottom right";
+	                        $response["size"] = "mini";
+	                        $response["icone"] = "fa fa-check-circle";
+	                        $response["sounds"] = "sound4";
+	                        $response["csrft"] = csrf_hash();
+							header('Content-Type: application/json');
+							echo json_encode($response);
+							exit();
+						}
+					}
+					else {
+						$response["message"] = "Something went wrong REF-E007.";
+	                    $response["typemsg"] = "error";
+	                    $response["position"] = "bottom right";
+	                    $response["size"] = "mini";
+	                    $response["icone"] = "fa fa-check-circle";
+	                    $response["sounds"] = "sound4";
+	                    $response["csrft"] = csrf_hash();
+						header('Content-Type: application/json');
+						echo json_encode($response);
+						exit();
+					}
+				}
+			}
+			else {
+				$response["message"] = "Something went wrong REF-E008.";
+                $response["typemsg"] = "error";
+                $response["position"] = "bottom right";
+                $response["size"] = "mini";
+                $response["icone"] = "fa fa-check-circle";
+                $response["sounds"] = "sound4";
+                $response["csrft"] = csrf_hash();
+				header('Content-Type: application/json');
+				echo json_encode($response);
+				exit();
+			}
+		}
+		else {
+			$response["message"] = "Something went wrong REF-E009.";
+            $response["typemsg"] = "error";
+            $response["position"] = "bottom right";
+            $response["size"] = "mini";
+            $response["icone"] = "fa fa-check-circle";
+            $response["sounds"] = "sound4";
+            $response["csrft"] = csrf_hash();
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			exit();
+		}
+	}
+}
+

@@ -1,0 +1,1449 @@
+icons:
+  - Name: 1
+    id: bx-shape-polygon
+  - Name: 2
+    id: bx-donate-blood
+  - Name: 3
+    id: bx-donate-heart
+  - Name: 4
+    id: bx-door-open
+  - Name: 5
+    id: bx-credit-card-front
+  - Name: 6
+    id: bx-cookie
+  - Name: 7
+    id: bx-comment-detail
+  - Name: 8
+    id: bx-comment-add
+  - Name: 9
+    id: bx-comment-minus
+  - Name: 10
+    id: bx-comment-edit
+  - Name: 11
+    id: bx-comment-x
+  - Name: 12
+    id: bx-comment-error
+  - Name: 13
+    id: bx-comment-check
+  - Name: 14
+    id: bx-message-square-detail
+  - Name: 15
+    id: bx-message-square-add
+  - Name: 16
+    id: bx-message-square-edit
+  - Name: 17
+    id: bx-message-square-minus
+  - Name: 18
+    id: bx-message-square-x
+  - Name: 19
+    id: bx-message-square-error
+  - Name: 20
+    id: bx-message-square-check
+  - Name: 21
+    id: bx-message-detail
+  - Name: 22
+    id: bx-message-add
+  - Name: 23
+    id: bx-message-edit
+  - Name: 24
+    id: bx-message-minus
+  - Name: 25
+    id: bx-message-x
+  - Name: 26
+    id: bx-message-error
+  - Name: 27
+    id: bx-message-check
+  - Name: 28
+    id: bx-message-rounded-detail
+  - Name: 29
+    id: bx-message-rounded-add
+  - Name: 30
+    id: bx-message-rounded-edit
+  - Name: 31
+    id: bx-message-rounded-minus
+  - Name: 32
+    id: bx-message-rounded-x
+  - Name: 33
+    id: bx-message-rounded-error
+  - Name: 34
+    id: bx-message-rounded-check
+  - Name: 35
+    id: bx-message-alt-detail
+  - Name: 36
+    id: bx-message-alt-edit
+  - Name: 37
+    id: bx-message-alt-minus
+  - Name: 38
+    id: bx-message-alt-x
+  - Name: 39
+    id: bx-message-alt-error
+  - Name: 40
+    id: bx-message-alt-check
+  - Name: 41
+    id: bx-message-alt-add
+  - Name: 42
+    id: bx-envelope-open
+  - Name: 43
+    id: bx-home-smile
+  - Name: 44
+    id: bx-refresh
+  - Name: 45
+    id: bx-meteor
+  - Name: 46
+    id: bx-outline
+  - Name: 47
+    id: bx-trim
+  - Name: 48
+    id: bx-merge
+  - Name: 49
+    id: bx-minus-back
+  - Name: 50
+    id: bx-exclude
+  - Name: 51
+    id: bx-intersect
+  - Name: 52
+    id: bx-minus-front
+  - Name: 53
+    id: bx-unite
+  - Name: 54
+    id: bx-coin-stack
+  - Name: 55
+    id: bx-coin
+  - Name: 56
+    id: bx-church
+  - Name: 57
+    id: bx-chevron-right-square
+  - Name: 58
+    id: bx-chevron-left-square
+  - Name: 59
+    id: bx-chevron-up-square
+  - Name: 60
+    id: bx-chevron-down-square
+  - Name: 61
+    id: bx-chevron-right-circle
+  - Name: 62
+    id: bx-chevron-left-circle
+  - Name: 63
+    id: bx-chevron-up-circle
+  - Name: 64
+    id: bx-chevron-down-circle
+  - Name: 65
+    id: bx-line-chart-down
+  - Name: 66
+    id: bx-shield-x
+  - Name: 67
+    id: bx-caret-down-square
+  - Name: 68
+    id: bx-caret-left-square
+  - Name: 69
+    id: bx-caret-up-square
+  - Name: 70
+    id: bx-caret-right-square
+  - Name: 71
+    id: bx-caret-down-circle
+  - Name: 72
+    id: bx-caret-up-circle
+  - Name: 73
+    id: bx-caret-left-circle
+  - Name: 74
+    id: bx-caret-right-circle
+  - Name: 75
+    id: bx-camera-movie
+  - Name: 76
+    id: bx-camera-home
+  - Name: 77
+    id: bx-calendar-star
+  - Name: 78
+    id: bx-calendar-exclamation
+  - Name: 79
+    id: bx-vector
+  - Name: 80
+    id: bx-network-chart
+  - Name: 81
+    id: bx-chair
+  - Name: 82
+    id: bx-cctv
+  - Name: 83
+    id: bx-drink
+  - Name: 84
+    id: bx-eraser
+  - Name: 85
+    id: bx-capsule
+  - Name: 86
+    id: bx-color-fill
+  - Name: 87
+    id: bx-vial
+  - Name: 88
+    id: bx-wine
+  - Name: 89
+    id: bx-calendar-heart
+  - Name: 90
+    id: bx-window-alt
+  - Name: 91
+    id: bx-braille
+  - Name: 92
+    id: bx-border-outer
+  - Name: 93
+    id: bx-brain
+  - Name: 94
+    id: bx-bracket
+  - Name: 95
+    id: bx-book-add
+  - Name: 96
+    id: bx-book-heart
+  - Name: 97
+    id: bx-book-alt
+  - Name: 98
+    id: bx-bong
+  - Name: 99
+    id: bx-bone
+  - Name: 100
+    id: bx-blanket
+  - Name: 101
+    id: bx-barcode-reader
+  - Name: 102
+    id: bx-task-x
+  - Name: 103
+    id: bx-medal
+  - Name: 104
+    id: bx-alarm-exclamation
+  - Name: 105
+    id: bx-alarm-snooze
+  - Name: 106
+    id: bx-abacus
+  - Name: 107
+    id: bx-game
+  - Name: 108
+    id: bx-tachometer
+  - Name: 109
+    id: bx-sticker
+  - Name: 110
+    id: bx-spray-can
+  - Name: 111
+    id: bx-webcam
+  - Name: 112
+    id: bx-border-inner
+  - Name: 113
+    id: bx-border-none
+  - Name: 114
+    id: bx-glasses-alt
+  - Name: 115
+    id: bx-glasses
+  - Name: 116
+    id: bx-calendar-week
+  - Name: 117
+    id: bx-scan
+  - Name: 118
+    id: bx-book-reader
+  - Name: 119
+    id: bx-arrow-to-bottom
+  - Name: 120
+    id: bx-arrow-to-top
+  - Name: 121
+    id: bx-arrow-to-left
+  - Name: 122
+    id: bx-arrow-to-right
+  - Name: 123
+    id: bx-arrow-from-right
+  - Name: 124
+    id: bx-arrow-from-left
+  - Name: 125
+    id: bx-arrow-from-bottom
+  - Name: 126
+    id: bx-arrow-from-top
+  - Name: 127
+    id: bx-current-location
+  - Name: 128
+    id: bx-been-here
+  - Name: 129
+    id: bx-low-vision
+  - Name: 130
+    id: bx-mask
+  - Name: 131
+    id: bx-traffic-cone
+  - Name: 132
+    id: bx-recycle
+  - Name: 133
+    id: bx-layer-minus
+  - Name: 134
+    id: bx-layer-plus
+  - Name: 135
+    id: bx-info-square
+  - Name: 136
+    id: bx-home-heart
+  - Name: 137
+    id: bx-heart-square
+  - Name: 138
+    id: bx-heart-circle
+  - Name: 139
+    id: bx-microchip
+  - Name: 140
+    id: bx-pointer
+  - Name: 141
+    id: bx-coffee-togo
+  - Name: 142
+    id: bx-calendar-edit
+  - Name: 143
+    id: bx-cabinet
+  - Name: 144
+    id: bx-bus-school
+  - Name: 145
+    id: bx-bomb
+  - Name: 146
+    id: bx-bible
+  - Name: 147
+    id: bx-beer
+  - Name: 148
+    id: bx-baseball
+  - Name: 149
+    id: bx-atom
+  - Name: 150
+    id: bx-arch
+  - Name: 151
+    id: bx-location-plus
+  - Name: 152
+    id: bx-shape-triangle
+  - Name: 153
+    id: bx-shape-square
+  - Name: 154
+    id: bx-video-recording
+  - Name: 155
+    id: bx-notepad
+  - Name: 156
+    id: bx-bug-alt
+  - Name: 157
+    id: bx-mouse-alt
+  - Name: 158
+    id: bx-edit-alt
+  - Name: 159
+    id: bx-chat
+  - Name: 160
+    id: bx-book-content
+  - Name: 161
+    id: bx-message-square-dots
+  - Name: 162
+    id: bx-message-square
+  - Name: 163
+    id: bx-slideshow
+  - Name: 164
+    id: bx-wallet-alt
+  - Name: 165
+    id: bx-memory-card
+  - Name: 166
+    id: bx-message-rounded-dots
+  - Name: 167
+    id: bx-message-dots
+  - Name: 168
+    id: bx-store-alt
+  - Name: 169
+    id: bx-buildings
+  - Name: 170
+    id: bx-home-circle
+  - Name: 171
+    id: bx-money
+  - Name: 172
+    id: bx-walk
+  - Name: 173
+    id: bx-repeat
+  - Name: 174
+    id: bx-font-family
+  - Name: 175
+    id: bx-joystick-button
+  - Name: 176
+    id: bx-paint
+  - Name: 177
+    id: bx-unlink
+  - Name: 178
+    id: bx-brush
+  - Name: 179
+    id: bx-rotate-left
+  - Name: 180
+    id: bx-badge-check
+  - Name: 181
+    id: bx-show-alt
+  - Name: 182
+    id: bx-caret-down
+  - Name: 183
+    id: bx-caret-right
+  - Name: 184
+    id: bx-caret-up
+  - Name: 185
+    id: bx-caret-left
+  - Name: 186
+    id: bx-calendar-event
+  - Name: 187
+    id: bx-magnet
+  - Name: 188
+    id: bx-rewind-circle
+  - Name: 189
+    id: bx-card
+  - Name: 190
+    id: bx-help-circle
+  - Name: 191
+    id: bx-test-tube
+  - Name: 192
+    id: bx-note
+  - Name: 193
+    id: bx-sort-down
+  - Name: 194
+    id: bx-sort-up
+  - Name: 195
+    id: bx-id-card
+  - Name: 196
+    id: bx-badge
+  - Name: 197
+    id: bx-grid-small
+  - Name: 198
+    id: bx-grid-vertical
+  - Name: 199
+    id: bx-grid-horizontal
+  - Name: 200
+    id: bx-move-vertical
+  - Name: 201
+    id: bx-move-horizontal
+  - Name: 202
+    id: bx-stats
+  - Name: 203
+    id: bx-equalizer
+  - Name: 204
+    id: bx-disc
+  - Name: 205
+    id: bx-analyse
+  - Name: 206
+    id: bx-search-alt
+  - Name: 207
+    id: bx-dollar-circle
+  - Name: 208
+    id: bx-football
+  - Name: 209
+    id: bx-ball
+  - Name: 210
+    id: bx-circle
+  - Name: 211
+    id: bx-transfer
+  - Name: 212
+    id: bx-fingerprint
+  - Name: 213
+    id: bx-font-color
+  - Name: 214
+    id: bx-highlight
+  - Name: 215
+    id: bx-file-blank
+  - Name: 216
+    id: bx-strikethrough
+  - Name: 217
+    id: bx-photo-album
+  - Name: 218
+    id: bx-code-block
+  - Name: 219
+    id: bx-font-size
+  - Name: 220
+    id: bx-handicap
+  - Name: 221
+    id: bx-dialpad
+  - Name: 222
+    id: bx-wind
+  - Name: 223
+    id: bx-water
+  - Name: 224
+    id: bx-swim
+  - Name: 225
+    id: bx-restaurant
+  - Name: 226
+    id: bx-box
+  - Name: 227
+    id: bx-menu-alt-right
+  - Name: 228
+    id: bx-menu-alt-left
+  - Name: 229
+    id: bx-video-plus
+  - Name: 230
+    id: bx-list-ol
+  - Name: 231
+    id: bx-planet
+  - Name: 232
+    id: bx-hotel
+  - Name: 233
+    id: bx-movie
+  - Name: 234
+    id: bx-taxi
+  - Name: 235
+    id: bx-train
+  - Name: 236
+    id: bx-bath
+  - Name: 237
+    id: bx-bed
+  - Name: 238
+    id: bx-area
+  - Name: 239
+    id: bx-bot
+  - Name: 240
+    id: bx-dumbbell
+  - Name: 241
+    id: bx-check-double
+  - Name: 242
+    id: bx-bus
+  - Name: 243
+    id: bx-check-circle
+  - Name: 244
+    id: bx-rocket
+  - Name: 245
+    id: bx-certification
+  - Name: 246
+    id: bx-slider-alt
+  - Name: 247
+    id: bx-sad
+  - Name: 248
+    id: bx-meh
+  - Name: 249
+    id: bx-happy
+  - Name: 250
+    id: bx-cart-alt
+  - Name: 251
+    id: bx-car
+  - Name: 252
+    id: bx-loader-alt
+  - Name: 253
+    id: bx-loader-circle
+  - Name: 254
+    id: bx-wrench
+  - Name: 255
+    id: bx-alarm-off
+  - Name: 256
+    id: bx-layout
+  - Name: 257
+    id: bx-dock-left
+  - Name: 258
+    id: bx-dock-top
+  - Name: 259
+    id: bx-dock-right
+  - Name: 260
+    id: bx-dock-bottom
+  - Name: 261
+    id: bx-world
+  - Name: 262
+    id: bx-selection
+  - Name: 263
+    id: bx-paper-plane
+  - Name: 264
+    id: bx-slider
+  - Name: 265
+    id: bx-loader
+  - Name: 266
+    id: bx-chalkboard
+  - Name: 267
+    id: bx-trash-alt
+  - Name: 268
+    id: bx-grid-alt
+  - Name: 269
+    id: bx-command
+  - Name: 270
+    id: bx-window-close
+  - Name: 271
+    id: bx-notification-off
+  - Name: 272
+    id: bx-plug
+  - Name: 273
+    id: bx-infinite
+  - Name: 274
+    id: bx-carousel
+  - Name: 275
+    id: bx-hourglass
+  - Name: 276
+    id: bx-briefcase-alt
+  - Name: 277
+    id: bx-wallet
+  - Name: 278
+    id: bx-station
+  - Name: 279
+    id: bx-collection
+  - Name: 280
+    id: bx-tv
+  - Name: 281
+    id: bx-closet
+  - Name: 282
+    id: bx-paperclip
+  - Name: 283
+    id: bx-expand
+  - Name: 284
+    id: bx-pen
+  - Name: 285
+    id: bx-purchase-tag
+  - Name: 286
+    id: bx-images
+  - Name: 287
+    id: bx-pie-chart-alt
+  - Name: 288
+    id: bx-news
+  - Name: 289
+    id: bx-downvote
+  - Name: 290
+    id: bx-upvote
+  - Name: 291
+    id: bx-globe-alt
+  - Name: 292
+    id: bx-store
+  - Name: 293
+    id: bx-hdd
+  - Name: 294
+    id: bx-skip-previous-circle
+  - Name: 295
+    id: bx-skip-next-circle
+  - Name: 296
+    id: bx-chip
+  - Name: 297
+    id: bx-cast
+  - Name: 298
+    id: bx-body
+  - Name: 299
+    id: bx-phone-outgoing
+  - Name: 300
+    id: bx-phone-incoming
+  - Name: 301
+    id: bx-collapse
+  - Name: 302
+    id: bx-rename
+  - Name: 303
+    id: bx-rotate-right
+  - Name: 304
+    id: bx-horizontal-center
+  - Name: 305
+    id: bx-ruler
+  - Name: 306
+    id: bx-import
+  - Name: 307
+    id: bx-calendar-alt
+  - Name: 308
+    id: bx-battery
+  - Name: 309
+    id: bx-server
+  - Name: 310
+    id: bx-task
+  - Name: 311
+    id: bx-folder-open
+  - Name: 312
+    id: bx-film
+  - Name: 313
+    id: bx-aperture
+  - Name: 314
+    id: bx-phone-call
+  - Name: 315
+    id: bx-up-arrow
+  - Name: 316
+    id: bx-undo
+  - Name: 317
+    id: bx-timer
+  - Name: 318
+    id: bx-support
+  - Name: 319
+    id: bx-subdirectory-right
+  - Name: 320
+    id: bx-subdirectory-left
+  - Name: 321
+    id: bx-right-arrow
+  - Name: 322
+    id: bx-revision
+  - Name: 323
+    id: bx-repost
+  - Name: 324
+    id: bx-reply
+  - Name: 325
+    id: bx-reply-all
+  - Name: 326
+    id: bx-redo
+  - Name: 327
+    id: bx-radar
+  - Name: 328
+    id: bx-poll
+  - Name: 329
+    id: bx-list-check
+  - Name: 330
+    id: bx-like
+  - Name: 331
+    id: bx-left-arrow
+  - Name: 332
+    id: bx-joystick-alt
+  - Name: 333
+    id: bx-history
+  - Name: 334
+    id: bx-flag
+  - Name: 335
+    id: bx-first-aid
+  - Name: 336
+    id: bx-export
+  - Name: 337
+    id: bx-down-arrow
+  - Name: 338
+    id: bx-dislike
+  - Name: 339
+    id: bx-crown
+  - Name: 340
+    id: bx-barcode
+  - Name: 341
+    id: bx-user
+  - Name: 342
+    id: bx-user-x
+  - Name: 343
+    id: bx-user-plus
+  - Name: 344
+    id: bx-user-minus
+  - Name: 345
+    id: bx-user-circle
+  - Name: 346
+    id: bx-user-check
+  - Name: 347
+    id: bx-underline
+  - Name: 348
+    id: bx-trophy
+  - Name: 349
+    id: bx-trash
+  - Name: 350
+    id: bx-text
+  - Name: 351
+    id: bx-sun
+  - Name: 352
+    id: bx-star
+  - Name: 353
+    id: bx-sort
+  - Name: 354
+    id: bx-shuffle
+  - Name: 355
+    id: bx-shopping-bag
+  - Name: 356
+    id: bx-shield
+  - Name: 357
+    id: bx-shield-alt
+  - Name: 358
+    id: bx-share
+  - Name: 359
+    id: bx-share-alt
+  - Name: 360
+    id: bx-select-multiple
+  - Name: 361
+    id: bx-screenshot
+  - Name: 362
+    id: bx-save
+  - Name: 363
+    id: bx-pulse
+  - Name: 364
+    id: bx-power-off
+  - Name: 365
+    id: bx-plus
+  - Name: 366
+    id: bx-pin
+  - Name: 367
+    id: bx-pencil
+  - Name: 368
+    id: bx-paste
+  - Name: 369
+    id: bx-paragraph
+  - Name: 370
+    id: bx-package
+  - Name: 371
+    id: bx-notification
+  - Name: 372
+    id: bx-shield-quarter
+  - Name: 373
+    id: bx-move
+  - Name: 374
+    id: bx-mouse
+  - Name: 375
+    id: bx-minus
+  - Name: 376
+    id: bx-microphone-off
+  - Name: 377
+    id: bx-log-out
+  - Name: 378
+    id: bx-log-in
+  - Name: 379
+    id: bx-link-external
+  - Name: 380
+    id: bx-joystick
+  - Name: 381
+    id: bx-italic
+  - Name: 382
+    id: bx-home-alt
+  - Name: 383
+    id: bx-heading
+  - Name: 384
+    id: bx-hash
+  - Name: 385
+    id: bx-group
+  - Name: 386
+    id: bx-git-repo-forked
+  - Name: 387
+    id: bx-git-pull-request
+  - Name: 388
+    id: bx-git-merge
+  - Name: 389
+    id: bx-git-compare
+  - Name: 390
+    id: bx-git-commit
+  - Name: 391
+    id: bx-git-branch
+  - Name: 392
+    id: bx-font
+  - Name: 393
+    id: bx-filter
+  - Name: 394
+    id: bx-file
+  - Name: 395
+    id: bx-edit
+  - Name: 396
+    id: bx-diamond
+  - Name: 397
+    id: bx-detail
+  - Name: 398
+    id: bx-cut
+  - Name: 399
+    id: bx-cube
+  - Name: 400
+    id: bx-crop
+  - Name: 401
+    id: bx-credit-card
+  - Name: 402
+    id: bx-columns
+  - Name: 403
+    id: bx-cog
+  - Name: 404
+    id: bx-cloud-snow
+  - Name: 405
+    id: bx-cloud-rain
+  - Name: 406
+    id: bx-cloud-lightning
+  - Name: 407
+    id: bx-cloud-light-rain
+  - Name: 408
+    id: bx-cloud-drizzle
+  - Name: 409
+    id: bx-check
+  - Name: 410
+    id: bx-cart
+  - Name: 411
+    id: bx-calculator
+  - Name: 412
+    id: bx-bold
+  - Name: 413
+    id: bx-award
+  - Name: 414
+    id: bx-anchor
+  - Name: 415
+    id: bx-album
+  - Name: 416
+    id: bx-adjust
+  - Name: 417
+    id: bx-x
+  - Name: 418
+    id: bx-table
+  - Name: 419
+    id: bx-duplicate
+  - Name: 420
+    id: bx-windows
+  - Name: 421
+    id: bx-window
+  - Name: 422
+    id: bx-window-open
+  - Name: 423
+    id: bx-wifi
+  - Name: 424
+    id: bx-voicemail
+  - Name: 425
+    id: bx-video-off
+  - Name: 426
+    id: bx-usb
+  - Name: 427
+    id: bx-upload
+  - Name: 428
+    id: bx-alarm
+  - Name: 429
+    id: bx-tennis-ball
+  - Name: 430
+    id: bx-target-lock
+  - Name: 431
+    id: bx-tag
+  - Name: 432
+    id: bx-tab
+  - Name: 433
+    id: bx-spreadsheet
+  - Name: 434
+    id: bx-sitemap
+  - Name: 435
+    id: bx-sidebar
+  - Name: 436
+    id: bx-send
+  - Name: 437
+    id: bx-pie-chart
+  - Name: 438
+    id: bx-phone
+  - Name: 439
+    id: bx-navigation
+  - Name: 440
+    id: bx-mobile
+  - Name: 441
+    id: bx-mobile-alt
+  - Name: 442
+    id: bx-message
+  - Name: 443
+    id: bx-message-rounded
+  - Name: 444
+    id: bx-map
+  - Name: 445
+    id: bx-map-alt
+  - Name: 446
+    id: bx-lock
+  - Name: 447
+    id: bx-lock-open
+  - Name: 448
+    id: bx-list-minus
+  - Name: 449
+    id: bx-list-ul
+  - Name: 450
+    id: bx-list-plus
+  - Name: 451
+    id: bx-link
+  - Name: 452
+    id: bx-link-alt
+  - Name: 453
+    id: bx-layer
+  - Name: 454
+    id: bx-laptop
+  - Name: 455
+    id: bx-home
+  - Name: 456
+    id: bx-heart
+  - Name: 457
+    id: bx-headphone
+  - Name: 458
+    id: bx-devices
+  - Name: 459
+    id: bx-globe
+  - Name: 460
+    id: bx-gift
+  - Name: 461
+    id: bx-envelope
+  - Name: 462
+    id: bx-download
+  - Name: 463
+    id: bx-dots-vertical
+  - Name: 464
+    id: bx-dots-vertical-rounded
+  - Name: 465
+    id: bx-dots-horizontal
+  - Name: 466
+    id: bx-dots-horizontal-rounded
+  - Name: 467
+    id: bx-dollar
+  - Name: 468
+    id: bx-directions
+  - Name: 469
+    id: bx-desktop
+  - Name: 470
+    id: bx-data
+  - Name: 471
+    id: bx-compass
+  - Name: 472
+    id: bx-crosshair
+  - Name: 473
+    id: bx-terminal
+  - Name: 474
+    id: bx-cloud
+  - Name: 475
+    id: bx-cloud-upload
+  - Name: 476
+    id: bx-cloud-download
+  - Name: 477
+    id: bx-chart
+  - Name: 478
+    id: bx-calendar
+  - Name: 479
+    id: bx-calendar-x
+  - Name: 480
+    id: bx-calendar-minus
+  - Name: 481
+    id: bx-calendar-check
+  - Name: 482
+    id: bx-calendar-plus
+  - Name: 483
+    id: bx-buoy
+  - Name: 484
+    id: bx-bulb
+  - Name: 485
+    id: bx-bluetooth
+  - Name: 486
+    id: bx-bug
+  - Name: 487
+    id: bx-building
+  - Name: 488
+    id: bx-broadcast
+  - Name: 489
+    id: bx-briefcase
+  - Name: 490
+    id: bx-bookmark-plus
+  - Name: 491
+    id: bx-bookmark-minus
+  - Name: 492
+    id: bx-book
+  - Name: 493
+    id: bx-book-bookmark
+  - Name: 494
+    id: bx-block
+  - Name: 495
+    id: bx-basketball
+  - Name: 496
+    id: bx-bar-chart
+  - Name: 497
+    id: bx-bar-chart-square
+  - Name: 498
+    id: bx-bar-chart-alt
+  - Name: 499
+    id: bx-at
+  - Name: 500
+    id: bx-archive
+  - Name: 501
+    id: bx-zoom-out
+  - Name: 502
+    id: bx-zoom-in
+  - Name: 503
+    id: bx-x-circle
+  - Name: 504
+    id: bx-volume
+  - Name: 505
+    id: bx-volume-mute
+  - Name: 506
+    id: bx-volume-low
+  - Name: 507
+    id: bx-volume-full
+  - Name: 508
+    id: bx-video
+  - Name: 509
+    id: bx-vertical-center
+  - Name: 510
+    id: bx-up-arrow-circle
+  - Name: 511
+    id: bx-trending-up
+  - Name: 512
+    id: bx-trending-down
+  - Name: 513
+    id: bx-toggle-right
+  - Name: 514
+    id: bx-toggle-left
+  - Name: 515
+    id: bx-time
+  - Name: 516
+    id: bx-sync
+  - Name: 517
+    id: bx-stopwatch
+  - Name: 518
+    id: bx-stop
+  - Name: 519
+    id: bx-stop-circle
+  - Name: 520
+    id: bx-skip-previous
+  - Name: 521
+    id: bx-skip-next
+  - Name: 522
+    id: bx-show
+  - Name: 523
+    id: bx-search
+  - Name: 524
+    id: bx-rss
+  - Name: 525
+    id: bx-right-top-arrow-circle
+  - Name: 526
+    id: bx-right-indent
+  - Name: 527
+    id: bx-right-down-arrow-circle
+  - Name: 528
+    id: bx-right-arrow-circle
+  - Name: 529
+    id: bx-reset
+  - Name: 530
+    id: bx-rewind
+  - Name: 531
+    id: bx-rectangle
+  - Name: 532
+    id: bx-radio-circle
+  - Name: 533
+    id: bx-radio-circle-marked
+  - Name: 534
+    id: bx-question-mark
+  - Name: 535
+    id: bx-plus-circle
+  - Name: 536
+    id: bx-play
+  - Name: 537
+    id: bx-play-circle
+  - Name: 538
+    id: bx-pause
+  - Name: 539
+    id: bx-pause-circle
+  - Name: 540
+    id: bx-moon
+  - Name: 541
+    id: bx-minus-circle
+  - Name: 542
+    id: bx-microphone
+  - Name: 543
+    id: bx-menu
+  - Name: 544
+    id: bx-left-top-arrow-circle
+  - Name: 545
+    id: bx-left-indent
+  - Name: 546
+    id: bx-left-down-arrow-circle
+  - Name: 547
+    id: bx-left-arrow-circle
+  - Name: 548
+    id: bx-last-page
+  - Name: 549
+    id: bx-key
+  - Name: 550
+    id: bx-align-justify
+  - Name: 551
+    id: bx-info-circle
+  - Name: 552
+    id: bx-image
+  - Name: 553
+    id: bx-hide
+  - Name: 554
+    id: bx-fullscreen
+  - Name: 555
+    id: bx-folder
+  - Name: 556
+    id: bx-folder-plus
+  - Name: 557
+    id: bx-folder-minus
+  - Name: 558
+    id: bx-first-page
+  - Name: 559
+    id: bx-fast-forward
+  - Name: 560
+    id: bx-fast-forward-circle
+  - Name: 561
+    id: bx-exit-fullscreen
+  - Name: 562
+    id: bx-error
+  - Name: 563
+    id: bx-error-circle
+  - Name: 564
+    id: bx-down-arrow-circle
+  - Name: 565
+    id: bx-copyright
+  - Name: 566
+    id: bx-copy
+  - Name: 567
+    id: bx-coffee
+  - Name: 568
+    id: bx-code
+  - Name: 569
+    id: bx-code-curly
+  - Name: 570
+    id: bx-clipboard
+  - Name: 571
+    id: bx-chevrons-left
+  - Name: 572
+    id: bx-chevrons-right
+  - Name: 573
+    id: bx-chevrons-up
+  - Name: 574
+    id: bx-chevrons-down
+  - Name: 575
+    id: bx-chevron-right
+  - Name: 576
+    id: bx-chevron-left
+  - Name: 577
+    id: bx-chevron-up
+  - Name: 578
+    id: bx-chevron-down
+  - Name: 579
+    id: bx-checkbox-square
+  - Name: 580
+    id: bx-checkbox
+  - Name: 581
+    id: bx-checkbox-checked
+  - Name: 582
+    id: bx-captions
+  - Name: 583
+    id: bx-camera
+  - Name: 584
+    id: bx-camera-off
+  - Name: 585
+    id: bx-bullseye
+  - Name: 586
+    id: bx-bookmarks
+  - Name: 587
+    id: bx-bookmark
+  - Name: 588
+    id: bx-bell
+  - Name: 589
+    id: bx-bell-plus
+  - Name: 590
+    id: bx-bell-off
+  - Name: 591
+    id: bx-bell-minus
+  - Name: 592
+    id: bx-arrow-back
+  - Name: 593
+    id: bx-align-right
+  - Name: 594
+    id: bx-align-middle
+  - Name: 595
+    id: bx-align-left
+  - Name: 596
+    id: bx-music
+  - Name: 597
+    id: bx-upside-down
+  - Name: 598
+    id: bx-laugh
+  - Name: 599
+    id: bx-meh-blank
+  - Name: 600
+    id: bx-happy-beaming
+  - Name: 601
+    id: bx-shocked
+  - Name: 602
+    id: bx-sleepy
+  - Name: 603
+    id: bx-confused
+  - Name: 604
+    id: bx-wink-smile
+  - Name: 605
+    id: bx-dizzy
+  - Name: 606
+    id: bx-happy-heart-eyes
+  - Name: 607
+    id: bx-angry
+  - Name: 608
+    id: bx-smile
+  - Name: 609
+    id: bx-tired
+  - Name: 610
+    id: bx-cool
+  - Name: 611
+    id: bx-happy-alt
+  - Name: 612
+    id: bx-wink-tongue
+  - Name: 613
+    id: bx-meh-alt
+  - Name: 614
+    id: bx-food-menu
+  - Name: 615
+    id: bx-food-tag
+  - Name: 616
+    id: bx-female-sign
+  - Name: 617
+    id: bx-male-sign
+  - Name: 618
+    id: bx-female
+  - Name: 619
+    id: bx-male
+  - Name: 620
+    id: bx-clinic
+  - Name: 621
+    id: bx-health
+  - Name: 622
+    id: bx-shekel
+  - Name: 623
+    id: bx-yen
+  - Name: 624
+    id: bx-won
+  - Name: 625
+    id: bx-pound
+  - Name: 626
+    id: bx-euro
+  - Name: 627
+    id: bx-rupee
+  - Name: 628
+    id: bx-ruble
+  - Name: 629
+    id: bx-lira
+  - Name: 630
+    id: bx-bitcoin
+  - Name: 631
+    id: bx-tone
+  - Name: 632
+    id: bx-bolt-circle
+  - Name: 633
+    id: bx-cake
+  - Name: 634
+    id: bx-spa
+  - Name: 635
+    id: bx-dish
+  - Name: 636
+    id: bx-fridge
+  - Name: 637
+    id: bx-image-add
+  - Name: 638
+    id: bx-image-alt
+  - Name: 639
+    id: bx-space-bar
+  - Name: 640
+    id: bx-alarm-add
+  - Name: 641
+    id: bx-archive-out
+  - Name: 642
+    id: bx-archive-in
+  - Name: 643
+    id: bx-add-to-queue
+  - Name: 644
+    id: bx-border-radius
+  - Name: 645
+    id: bx-check-shield
+  - Name: 646
+    id: bx-label
+  - Name: 647
+    id: bx-file-find
+  - Name: 648
+    id: bx-face
+  - Name: 649
+    id: bx-extension
+  - Name: 650
+    id: bx-exit
+  - Name: 651
+    id: bx-conversation
+  - Name: 652
+    id: bx-sort-z-a
+  - Name: 653
+    id: bx-sort-a-z
+  - Name: 654
+    id: bx-printer
+  - Name: 655
+    id: bx-radio
+  - Name: 656
+    id: bx-customize
+  - Name: 657
+    id: bx-brush-alt
+  - Name: 658
+    id: bx-time-five
+  - Name: 659
+    id: bx-gas-pump
+  - Name: 660
+    id: bx-mobile-vibration
+  - Name: 661
+    id: bx-mobile-landscape
+  - Name: 662
+    id: bx-border-all
+  - Name: 663
+    id: bx-border-bottom
+  - Name: 664
+    id: bx-border-top
+  - Name: 665
+    id: bx-border-left
+  - Name: 666
+    id: bx-border-right
+  - Name: 667
+    id: bx-dialpad-alt
+  - Name: 668
+    id: bx-filter-alt
+  - Name: 669
+    id: bx-brightness
+  - Name: 670
+    id: bx-brightness-half
+  - Name: 671
+    id: bx-wifi-off
+  - Name: 672
+    id: bx-credit-card-alt
+  - Name: 673
+    id: bx-band-aid
+  - Name: 674
+    id: bx-hive
+  - Name: 675
+    id: bx-map-pin
+  - Name: 676
+    id: bx-line-chart
+  - Name: 677
+    id: bx-receipt
+  - Name: 678
+    id: bx-purchase-tag-alt
+  - Name: 679
+    id: bx-basket
+  - Name: 680
+    id: bx-palette
+  - Name: 681
+    id: bx-no-entry
+  - Name: 682
+    id: bx-message-alt-dots
+  - Name: 683
+    id: bx-message-alt
+  - Name: 684
+    id: bx-check-square
+  - Name: 685
+    id: bx-log-out-circle
+  - Name: 686
+    id: bx-log-in-circle
+  - Name: 687
+    id: bx-doughnut-chart
+  - Name: 688
+    id: bx-building-house
+  - Name: 689
+    id: bx-accessibility
+  - Name: 690
+    id: bx-user-voice
+  - Name: 691
+    id: bx-cuboid
+  - Name: 692
+    id: bx-cube-alt
+  - Name: 693
+    id: bx-polygon
+  - Name: 694
+    id: bx-square-rounded
+  - Name: 695
+    id: bx-square
+  - Name: 696
+    id: bx-error-alt
+  - Name: 697
+    id: bx-paint-roll
+  - Name: 698
+    id: bx-droplet
+  - Name: 699
+    id: bx-street-view
+  - Name: 700
+    id: bx-plus-medical
+  - Name: 701
+    id: bx-bowling-ball
+  - Name: 702
+    id: bx-dna
+  - Name: 703
+    id: bx-cycling
+  - Name: 704
+    id: bx-shape-circle
+  - Name: 705
+    id: bx-down-arrow-alt
+  - Name: 706
+    id: bx-up-arrow-alt
+  - Name: 707
+    id: bx-right-arrow-alt
+  - Name: 708
+    id: bx-left-arrow-alt
+  - Name: 709
+    id: bx-lock-open-alt
+  - Name: 710
+    id: bx-lock-alt
+  - Name: 711
+    id: bx-cylinder
+  - Name: 712
+    id: bx-pyramid
+  - Name: 713
+    id: bx-comment-dots
+  - Name: 714
+    id: bx-comment
+  - Name: 715
+    id: bx-landscape
+  - Name: 716
+    id: bx-book-open
+  - Name: 717
+    id: bx-transfer-alt
+  - Name: 718
+    id: bx-copy-alt
+  - Name: 719
+    id: bx-run
+  - Name: 720
+    id: bx-user-pin
+  - Name: 721
+    id: bx-grid
+  - Name: 722
+    id: bx-code-alt
+  - Name: 723
+    id: bx-mail-send
+  - Name: 724
+    id: bx-ghost
